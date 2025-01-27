@@ -47,6 +47,20 @@ public class PortefeuilleTest {
         assertFalse(portefeuille.mapLignes.containsKey(action), "Aucune action ne doit être ajoutée pour une quantité de 0.");
     }
 
+
+    @Test
+    public void testAcheterQuantiteInvalide() {
+        // Arrange
+        Portefeuille portefeuille = new Portefeuille();
+        ActionSimple action = new ActionSimple("Action1");
+
+        // Act
+        portefeuille.acheter(action, -5);
+
+        // Assert
+        assertFalse(portefeuille.mapLignes.containsKey(action), "Aucune action ne doit être ajoutée pour une quantité de 0.");
+    }
+
     @Test
     public void testVendreActionPartiellement() {
         // Arrange

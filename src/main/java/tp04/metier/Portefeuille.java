@@ -50,9 +50,9 @@ public class Portefeuille {
     
     public void acheter(Action a, int q) {
 
-        if(q <= 0)
-            return false;
-
+        if (q <= 0)
+            return;
+    
         if (!this.mapLignes.containsKey(a)) {
             this.mapLignes.put(a, new LignePortefeuille(a, q));
         } else {
