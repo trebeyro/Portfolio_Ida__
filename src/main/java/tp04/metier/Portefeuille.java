@@ -13,27 +13,27 @@ import java.util.Map;
  * @author perussel
  */
 public class Portefeuille {
-    
+
     Map<Action, LignePortefeuille> mapLignes;
-    
+
     private class LignePortefeuille {
-        
+
         private Action action;
-        
+
         private int qte;
-        
+
         public int getQte() {
             return qte;
         }
-        
+
         public void setQte(int qte) {
             this.qte = qte;
         }
-        
+
         public Action getAction() {
             return this.action;
         }
-        
+
         public LignePortefeuille(Action action, int qte) {
             this.action = action;
             this.qte = qte;
@@ -43,11 +43,11 @@ public class Portefeuille {
             return Integer.toString(qte);
         }
     }
-    
+
     public Portefeuille() {
         this.mapLignes = new HashMap();
     }
-    
+
     public void acheter(Action a, int q) {
         if (this.mapLignes.containsKey(a) == false) {
             this.mapLignes.put(a, new LignePortefeuille(a, q));
@@ -63,9 +63,21 @@ public class Portefeuille {
             } else if (this.mapLignes.get(a).getQte() == q) {
                 this.mapLignes.remove(a);
             }
-        }        
+        }
     }
-    
+
+    public Map<Action, LignePortefeuille> getMapLignes() {
+        return mapLignes;
+    }
+
+    public boolean containAction(Action a) {
+        for (Map.Entry<Action, LignePortefeuille> entry : mapLignes.entrySet()) {
+            if (entry.getKey() == a)
+                return (true);
+        }
+        return false;
+    }
+
     public String toString() {
         return this.mapLignes.toString();
     }
