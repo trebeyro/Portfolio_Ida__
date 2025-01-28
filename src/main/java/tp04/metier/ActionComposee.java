@@ -38,12 +38,17 @@ public class ActionComposee extends Action {
         return valeur;
     }
 
-    // public void afficherPerformancesIndividuelles(Jour j) {
-    // float perf = 0;
-    // for (Action key : mapPanier.keySet()) {
-    // perf = key
-    // }
+    public void afficherPerformancesIndividuelles() {
+        float perf = 0;
+        float premiereValeur, derniereValeur = 0;
+        for (Map.Entry<ActionSimple, Float> entry : mapPanier.entrySet()) {
+            premiereValeur = entry.getKey().getFirstValue();
+            derniereValeur = entry.getKey().getLastValue();
+            perf = (derniereValeur - premiereValeur) / premiereValeur * 100;
+            System.out.println(
+                    "L'action " + entry.getKey().getLibelle() + " a réalisé une performance de " + perf + "%.");
+        }
 
-    // }
+    }
 
 }
