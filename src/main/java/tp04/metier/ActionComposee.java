@@ -6,6 +6,7 @@
 
 package tp04.metier;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,17 +39,17 @@ public class ActionComposee extends Action {
         return valeur;
     }
 
-    public void afficherPerformancesIndividuelles() {
+    public ArrayList<String> afficherPerformancesIndividuelles() {
+        ArrayList<String> perfGroupe = new ArrayList<String>();
         float perf = 0;
         float premiereValeur, derniereValeur = 0;
         for (Map.Entry<ActionSimple, Float> entry : mapPanier.entrySet()) {
             premiereValeur = entry.getKey().getFirstValue();
             derniereValeur = entry.getKey().getLastValue();
             perf = (derniereValeur - premiereValeur) / premiereValeur * 100;
-            System.out.println(
-                    "L'action " + entry.getKey().getLibelle() + " a réalisé une performance de " + perf + "%.");
+            perfGroupe.add("L'action " + entry.getKey().getLibelle() + " a réalisé une performance de " + perf + "%.");
         }
+        return perfGroupe;
 
     }
-
 }
