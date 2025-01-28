@@ -6,6 +6,7 @@
 
 package tp04.metier;
 
+import java.util.*;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -41,11 +42,47 @@ public class ActionSimple extends Action {
             return 0; // definition d'une constante possible
     }
 
-    public void getFirstValue() {
-        System.out.println(mapCours.keySet());
+    public float getFirstValue() {
+
+        Calendar c = Calendar.getInstance();
+        int premiereAnnee = c.get(Calendar.YEAR);
+        int premierJour = 366;
+        float valeurAction = 0;
+        for (Map.Entry<Jour, Cours> entry : mapCours.entrySet()) {
+            if (entry.getKey().getAnnee() < premiereAnnee) {
+                premiereAnnee = entry.getKey().getAnnee();
+            }
+        }
+        for (Map.Entry<Jour, Cours> entry : mapCours.entrySet()) {
+            if (entry.getKey().getAnnee() == premiereAnnee) {
+                if (entry.getKey().getNoJour() < premierJour) {
+                    premierJour = entry.getKey().getNoJour();
+                    valeurAction = entry.getValue().getValeur();
+                }
+            }
+        }
+        return valeurAction;
     }
 
-    // public float getLastValue() {
+    public float getLastValue() {
+        Calendar c = Calendar.getInstance();
+        int derniereAnnee = 0;
+        int dernierJour = 0;
+        float valeurAction = 0;
+        for (Map.Entry<Jour, Cours> entry : mapCours.entrySet()) {
+            if (entry.getKey().getAnnee() > derniereAnnee) {
+                derniereAnnee = entry.getKey().getAnnee();
+            }
+        }
+        for (Map.Entry<Jour, Cours> entry : mapCours.entrySet()) {
+            if (entry.getKey().getAnnee() == derniereAnnee) {
+                if (entry.getKey().getNoJour() > dernierJour) {
+                    dernierJour = entry.getKey().getNoJour();
+                    valeurAction = entry.getValue().getValeur();
+                }
+            }
+        }
+        return valeurAction;
+    }
 
-    // }
 }
