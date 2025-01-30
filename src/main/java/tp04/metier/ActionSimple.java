@@ -42,6 +42,13 @@ public class ActionSimple extends Action {
             return 0; // definition d'une constante possible
     }
 
+    /*
+     * L'objectif est de récupérer la première valeur d'une action simple.
+     * On commence par récupérer l'année de l'action la plus ancienne,
+     * ensuite on va récupérer pour cette année l'action la plus ancienne
+     * avec sa valeur que l'on va retourner.
+     * 
+     */
     public float getFirstValue() {
 
         Calendar c = Calendar.getInstance();
@@ -64,6 +71,13 @@ public class ActionSimple extends Action {
         return valeurAction;
     }
 
+    /*
+     * L'objectif est de récupérer la dernière valeur d'une action simple.
+     * On commence par récupérer l'année de l'action la plus récente,
+     * ensuite on va récupérer pour cette année l'action la plus récente
+     * avec sa valeur que l'on va retourner.
+     * 
+     */
     public float getLastValue() {
         Calendar c = Calendar.getInstance();
         int derniereAnnee = 0;

@@ -26,13 +26,13 @@ import tp04.metier.ActionSimple;
  * @author David Navarre &lt;David.Navarre at irit.fr&gt;
  */
 
+/*
+ * L'objectif ici est d'obtenir les performances des actions simples d'une
+ * action composée
+ */
 public class PerformancesIndividuellesTest {
 
     public PerformancesIndividuellesTest() {
-    }
-
-    @Test
-    public void testSomeMethod() {
     }
 
     @Test
@@ -54,20 +54,24 @@ public class PerformancesIndividuellesTest {
         bqAss = new ActionComposee("Banque-AssuranceGrpe");
         bnp.enrgCours(j1, 100);
         bnp.enrgCours(j2, 5000);
-        bqAss.enrgComposition(bnp, 0.7f);
+        bqAss.enrgComposition(bnp, 0.40f);
 
         axa.enrgCours(j1, 200);
         axa.enrgCours(j2, 50);
-        bqAss.enrgComposition(axa, 0.7f);
+        bqAss.enrgComposition(axa, 0.35f);
 
         bitcoin.enrgCours(j1, 100);
         bitcoin.enrgCours(j2, 300);
-        bqAss.enrgComposition(bitcoin, 0.7f);
+        bqAss.enrgComposition(bitcoin, 0.25f);
 
+        // On crée un dictionnaire avec ce que l'on doit renvoyer
         expectedPerformances.add("L'action BITCOIN a réalisé une performance de 200.0%.");
         expectedPerformances.add("L'action BNP a réalisé une performance de 4900.0%.");
         expectedPerformances.add("L'action AXA a réalisé une performance de -75.0%.");
 
+        // L'assertion vérifie que le contenu du dictionnaire crée est le même que celui
+        // que la fonction
+        // affiche afficherPerformancesIndividuelles
         currentPerformances = bqAss.afficherPerformancesIndividuelles();
         Assertions.assertEquals(expectedPerformances, currentPerformances,
                 "Méthode afficherPerformancesIndividuelles ne fonctionne pas");

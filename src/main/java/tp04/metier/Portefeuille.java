@@ -70,6 +70,10 @@ public class Portefeuille {
         return mapLignes;
     }
 
+    /*
+     * Fonction prenant en paramètre un objet de la classe Action
+     * Renvoie True si cette action est dans le portefeuille.
+     */
     public boolean containAction(Action a) {
         for (Map.Entry<Action, LignePortefeuille> entry : mapLignes.entrySet()) {
             if (entry.getKey() == a)

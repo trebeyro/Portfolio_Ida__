@@ -10,6 +10,12 @@ package tp04.metier;
  *
  * @author perussel
  */
+
+/*
+ * 
+ * Recodage de la Classe Cours car on n'avait pas vu
+ * qu'elle était dans une autre Classe
+ */
 public class Cours {
     private float valeur;
     private Jour jour;

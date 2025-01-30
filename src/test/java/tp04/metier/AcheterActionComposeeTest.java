@@ -26,6 +26,13 @@ import tp04.metier.ActionSimple;
  * @author David Navarre &lt;David.Navarre at irit.fr&gt;
  */
 
+/*
+ * L'objectif ici est de tester la fonctionnalité d'achat d'actions composée
+ * On doit donc vérifier que quand on ajoute une action composée à notre
+ * portefeuille,
+ * l'ajout est effectif.
+ * 
+ */
 public class AcheterActionComposeeTest {
 
     public AcheterActionComposeeTest() {
@@ -61,7 +68,9 @@ public class AcheterActionComposeeTest {
         bqAss.enrgComposition(axa, 0.35f);
         bqAss.enrgComposition(bitcoin, 0.25f);
 
-        testPortefeuille.acheter(bqAss, 10);
+        // On vérifie que l'action a bien été ajouté à notre portefeuille
+        testPortefeuille.acheter(bqAss, 10); // Cette fonction doit ajouter l'action composée au portefeuille
+        // L'assertion vérifie qu'elle a bien été ajoutée.
         Assertions.assertTrue(testPortefeuille.containAction(bqAss),
                 "L'action composée n'a pas été ajoutée au portefeuille.");
     }

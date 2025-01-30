@@ -39,6 +39,15 @@ public class ActionComposee extends Action {
         return valeur;
     }
 
+    /*
+     * L'objectif ici était de parcourir les actions simples qui composent l'action
+     * composée
+     * et de fournir pour chacune d'elle, la performance entre le premier et le
+     * dernier cours
+     * pour avoir les performances individuelles de chaque action simple de cette
+     * action composée.
+     * 
+     */
     public ArrayList<String> afficherPerformancesIndividuelles() {
         ArrayList<String> perfGroupe = new ArrayList<String>();
         float perf = 0;
